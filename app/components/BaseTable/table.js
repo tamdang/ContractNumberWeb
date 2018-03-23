@@ -1,33 +1,36 @@
 import React from 'react'
+import './style.css'
 
 export default class Table extends React.Component{
   render(){
     const {data, columns} = this.props
     return (
-      <div className="px-2">
-        <div className="row text-light bg-dark">
+      <table className="px-2 w-100">
+        <tbody>
+          <tr className="text-light bg-dark">
+            {
+              columns.map(c=>(
+                <th className="text-left border py-3 pl-2" key={c.name}>
+                  {c.name}
+                </th>
+              ))
+            }
+          </tr>
           {
-            columns.map(c=>(
-              <div className="col-sm border" key={c.name}>
-                {c.name}
-              </div>
+            data.map((item,index)=>(
+                <tr key={index} className="baseRow" onClick={()=>this.props.onRowClick(item)}>
+                  {
+                    columns.map((c,index)=>(
+                        <td className="border pl-2 py-2" key={index}>
+                          {item[c.field]}
+                        </td>
+                    ))
+                  }
+                </tr>
             ))
           }
-        </div>
-        {
-          data.map((item,index)=>(
-              <div className="row" key={index}>
-                {
-                  columns.map((c,index)=>(
-                      <div className="col-sm border" key={index}>
-                        {item[c.field]}
-                      </div>
-                  ))
-                }
-              </div>
-          ))
-        }
-      </div>      
+        </tbody>
+      </table>
     )
   }
 }

@@ -46,8 +46,15 @@ const ContractsPresentation = (props) => {
       start: '2018-06-12'
     },
   ]
+  const rowClick = (item) => {
+    console.log(item.contractNumber)
+  }
   return (
-    <BaseTable columns={columns} data={data}/>
+    <BaseTable 
+      columns={columns} 
+      data={data}
+      onRowClick={rowClick}
+    />
   )
 }
 export default ContractsPresentation
