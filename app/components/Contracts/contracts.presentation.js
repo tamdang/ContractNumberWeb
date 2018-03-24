@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseTable from '../BaseTable'
+import SimpleTable from '../SimpleTable'
 const ContractsPresentation = (props) => {
   const columns = [
     {
@@ -50,7 +50,7 @@ const ContractsPresentation = (props) => {
     console.log(item.contractNumber)
   }
   return (
-    <BaseTable 
+    <SimpleTable 
       columns={columns} 
       data={data}
       onRowClick={rowClick}
