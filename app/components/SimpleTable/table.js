@@ -5,25 +5,33 @@ export default class Table extends React.Component{
   render(){
     const {data, columns} = this.props
     return (
-      <table className="px-2 w-100">
-        <tbody>
-          <tr className="text-light bg-dark">
+      <table className="table table-striped table-bordered table-hover">
+        <thead>
+          <tr className="bg-dark text-light">
+            <th>
+              #
+            </th>
             {
               columns.map(c=>(
-                <th className="text-left border py-3 pl-2" key={c.name}>
+                <th scope='col' key={c.name}>
                   {c.name}
                 </th>
               ))
             }
           </tr>
+        </thead>
+        <tbody>          
           {
             data.map((item,index)=>(
-                <tr key={index} className="baseRow" onClick={()=>this.props.onRowClick(item)}>
+                <tr key={index} onClick={()=>this.props.onRowClick(item)}>
+                  <th scope='row'>
+                    {index+1}
+                  </th>
                   {
                     columns.map((c,index)=>(
-                        <td className="border pl-2 py-2" key={index}>
-                          {item[c.field]}
-                        </td>
+                          <td key={index}>
+                            {item[c.field]}
+                          </td>
                     ))
                   }
                 </tr>
