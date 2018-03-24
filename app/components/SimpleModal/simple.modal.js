@@ -1,7 +1,7 @@
 import React from 'react'
 class SimpleModal extends React.Component{
   render(){
-    const {display, onClose} = this.props
+    const {display, onClose, Body} = this.props
     return (
       <div className="modal fade" id="simple_modal" tabIndex="-1" role="dialog" 
           aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
@@ -24,7 +24,7 @@ class SimpleModal extends React.Component{
               </button>
             </div>
             <div className="modal-body">
-              ...
+              <Body/>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>

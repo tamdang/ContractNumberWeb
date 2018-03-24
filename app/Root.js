@@ -4,6 +4,7 @@ import Displayer from './components/Displayer'
 import Navigator from './components/Navigator'
 import Contracts from './components/Contracts'
 import SimpleModal from './components/SimpleModal'
+import Contract from './components/Contract'
 import store from './configStore'
 import {Provider} from 'react-redux'
 import { hot } from 'react-hot-loader'
@@ -11,10 +12,10 @@ import { hot } from 'react-hot-loader'
 class Root extends React.Component {
   constructor(){
     super()
-    this.state = {
-      showModal: false
-    }
     this.onClose = this.onClose.bind(this)
+  }
+  state = {
+    showModal: false
   }
   onClose(){
     this.setState({showModal:false})
@@ -25,7 +26,10 @@ class Root extends React.Component {
         <div>    
           <Navigator/>
           <Contracts/>
-          <SimpleModal display={this.state.showModal} onClose={this.onClose}/>
+          <SimpleModal 
+            display={this.state.showModal} onClose={this.onClose}
+            Body = {Contract}
+          />
           <button type="button" className="btn btn-primary" onClick={()=>this.setState({showModal: true})}>
             Launch demo modal
           </button>
