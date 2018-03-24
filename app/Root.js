@@ -17,6 +17,7 @@ class Root extends React.Component {
   state = {
     showModal: false
   }
+  executives = ['Nguyen Thi Quynh Anh', 'Nguyen Thi Ngoc Trinh', 'Vu Thi Ha']
   onClose(){
     this.setState({showModal:false})
   }
@@ -28,7 +29,7 @@ class Root extends React.Component {
           <Contracts/>
           <SimpleModal 
             display={this.state.showModal} onClose={this.onClose}
-            Body = {Contract}
+            Body = {<Contract executives={this.executives}/>}
           />
           <button type="button" className="btn btn-primary" onClick={()=>this.setState({showModal: true})}>
             Launch demo modal

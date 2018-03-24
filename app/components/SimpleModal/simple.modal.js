@@ -12,7 +12,7 @@ class SimpleModal extends React.Component{
               element.modal(display?'show':'hide')
             }
           }}>
-        <div className="modal-dialog modal-dialog-centered" role="document">
+        <div className="modal-dialog modal-dialog-centered " role="document">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
@@ -24,7 +24,7 @@ class SimpleModal extends React.Component{
               </button>
             </div>
             <div className="modal-body">
-              <Body/>
+              {Body}
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>

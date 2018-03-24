@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 class ContractPresentation extends React.Component{
   state = {
-    executive: '',
+    executive: 'Vu Thi Ha',
     budget: 0,
     signDate: '2018-03-04',
     start: Date(),
@@ -20,10 +20,24 @@ class ContractPresentation extends React.Component{
   }
   render(){
     const {executive, budget, signDate, start, end, description} = this.state
+    const {executives} = this.props
     console.log(signDate)
     return (
       <div>
         <form>
+          <div className="form-group">
+            <label htmlFor="executive">Account Executive</label>
+            <select className="form-control" id="executive" value={executive} onChange={this._onValueChange('executive')}>
+              {
+                executives.map((e,i)=>(<option key={i}>{e}</option>))    
+              }
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="description">Description</label>
+            <textarea rows={3} className="form-control" id="description" placeholder="Discription" 
+              value={description} onChange={this._onValueChange('description')}/>
+          </div>
           <div className="form-group">
             <label htmlFor="budget">Budget</label>
             <input type="number" className="form-control" id="budget" placeholder="Budget" 
@@ -32,13 +46,8 @@ class ContractPresentation extends React.Component{
           <div className="form-group">
             <label htmlFor="signDate">Sign Date</label>
             <input type="date" className="form-control" id="signDate" placeholder="Sign date"
-              valuel={signDate} onChange={this._onValueChange('signDate')}/>
+              value={signDate} onChange={this._onValueChange('signDate')}/>
           </div>
-          <div className="form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
     )
