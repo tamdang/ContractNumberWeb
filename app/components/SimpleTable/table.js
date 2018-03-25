@@ -6,8 +6,8 @@ export default class Table extends React.Component{
     const {data, columns} = this.props
     return (
       <table className="table table-striped table-bordered table-hover">
-        <thead>
-          <tr className="bg-dark text-light">
+        <thead className="thead-light">
+          <tr>
             <th>
               #
             </th>
